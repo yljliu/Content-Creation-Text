@@ -1,7 +1,7 @@
 import os
 from groq import Groq, RateLimitError
 from readCSV import destination, accomodation, activities_for_content, room_type, activities, preset_itineraries
-from aii_model import room_ai, destination_ai, accomodation_ai, itin_ai, activities_for_content_ai, activities_ai
+from AI_model import room_ai, destination_ai, accomodation_ai, itin_ai, activities_for_content_ai, activities_ai
 from writeCSV import Write
 
 client = Groq(
@@ -115,9 +115,9 @@ if __name__ == '__main__':
 
     '''Create a Write class to write our results into a CSV file'''
     write = Write()
-    write.getFile(main_room())
-    write.getFile(main_destination())
-    write.getFile(main_accomodation())
+    #write.getFile(main_room())
+    #write.getFile(main_destination())
+    #write.getFile(main_accomodation())
     write.getFile(main_itinerary())
     write.getFile(main_activities())
-    write.getFile(main_activities_for_content())
+    #write.getFile(main_activities_for_content())

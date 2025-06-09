@@ -38,6 +38,14 @@ def destination_ai(client, name: str, country: str, category: str):
 def accomodation_ai(client, name: str, category: str, destination: str, area: str):
     
     content = ""
+    if isinstance(name, float):
+        name = "Name not Found"
+    if isinstance(category, float):
+        category = "Category unknown"
+    if isinstance(destination, float):
+        destination = "Destination unknown"
+    if isinstance(area, float):
+        area = "Area unknown"
 
     '''If the area of the destination is unknown, then we don't need to ask'''
     if isinstance(area, float):
@@ -64,6 +72,10 @@ def accomodation_ai(client, name: str, category: str, destination: str, area: st
 def itin_ai(client, dest_one: str, dest_two: str, dest_three: str, dest_four: str, country: str):
 
     content = ""
+
+    if isinstance(country, float):
+        country = ""
+
     if isinstance(dest_three, float) and isinstance(dest_four, float):
         dest_three = ""
         dest_four = ""
@@ -91,6 +103,11 @@ def itin_ai(client, dest_one: str, dest_two: str, dest_three: str, dest_four: st
     return chat_completion
 
 def activities_ai(client, name: str, destination: str):
+
+    if isinstance(name, float):
+        name = "Activity unknown"
+    if isinstance(destination, float):
+        destination = "destination unknown"
 
     chat_completion = client.chat.completions.create(
         messages=[

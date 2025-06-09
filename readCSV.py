@@ -43,6 +43,9 @@ def preset_itineraries():
     df_iten = df_iten.to_dict(orient = 'records')
     return df_iten
 
+
+destination()
+
 """
 Old Code
 """
