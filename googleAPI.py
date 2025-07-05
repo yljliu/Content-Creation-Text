@@ -16,10 +16,10 @@ import pandas as pd
 class Sheet:
 
   SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-  SAMPLE_SPREADSHEET_ID = "1SlXnyv41JkCJy1g2zJzbbJ0zW4tpfYxnAQY9_TXjDcA"
 
-  def __init__(self, range):
+  def __init__(self, range, id):
     self.range = range
+    self.SAMPLE_SPREADSHEET_ID = id
 
   def read_sheet(self):
 
@@ -68,5 +68,4 @@ class Sheet:
       return values_df 
     except HttpError as err:
       print(err)
-      
       return 

@@ -45,43 +45,60 @@ def destination_background(name: str, country: str, category: str):
 
 def accomodation_background(lodge: str, category: str, destination: str, area: str):
 
-    background_info =  f'''You are a travel assistant for Tukio Booking, an online platform specializing in safari travel planning and booking across Africa. 
-                           Write a brief, description (maximum two sentences) of the accomodations made by a lodge using the following information:
-                                
-                                Lodge Name: {lodge}
-                                Category: {category} (e.g., tented camp, eco-lodge, boutique resort)
-                                Destination: {destination}
-                                Area: {area}
+    background_info =  f'''You are a travel assistant for Tukio Booking, an online platform specializing in safari travel planning and booking across Africa.
 
-                            Include features like bar, pool, terrace, scenery, gardens, Wi-Fi, or other amenities. Keep it concise and factual. Avoid repeating the name at the start.
-                                
-                            Example Input
-                                Lodge Name: Oldarpoi
-                                Category: Mid-Range Lodge
-                                Destination: Maasai Mara
-                                Area: Sekenani
+Write a brief, natural-sounding description (maximum two sentences) of an accommodation based on the following information:
 
-                            Example Output
-                                Situated in Sekenani near the Maasai Mara, this tented camp offers an outdoor swimming pool, lush garden, and a sun terrace. Guests can enjoy free WiFi and immerse themselves in the surrounding nature.'''
+- Lodge Name: {lodge}
+- Category: {category} (e.g., tented camp, eco-lodge, boutique resort)
+- Destination: {destination}
+- Area: {area}
+
+The description should:
+- Mention the area or location contextually (e.g., views, surroundings, nearby landmarks).
+- Highlight at least one or two distinctive amenities or features (e.g., bar, pool, terrace, gardens, Wi-Fi, eco-focus, hospitality, views).
+- Optionally include personalized touches, such as who runs the lodge or its connection to the local community, if such information is available.
+- Avoid starting the sentence with the lodge name.
+- Be concise, factual, and warm in tone.
+
+If only standard info is available (name, area, amenities), focus on the scenery and features.
+
+Example Input:
+Lodge Name: Oldarpoi  
+Category: Mid-Range Lodge  
+Destination: Maasai Mara  
+Area: Sekenani  
+
+Example Output:
+Nestled in Sekenani at the edge of the Maasai Mara, this mid-range lodge features a sun terrace, swimming pool, and free Wi-Fi. It’s a peaceful retreat surrounded by acacia trees and the sounds of nature.'''
    
     return background_info
 
 def activities(name: str, destination: str):
 
-    background_info = f'''You are a travel assistant for Tukio Booking, an online platform specializing in safari travel planning and booking across Africa. 
+    background_info = f'''You are a travel assistant for Tukio Booking, an online platform specializing in safari travel planning and booking across Africa.
 
-                          Write a short, clear activity description (1 sentence, max 15–30 words) based on:
-                            Name: {name}
-                            Destination: {destination}
+Write a short, clear activity description (1 sentence, 15–30 words max) using the following details:
 
-                        The description should be direct, action-focused, and highlight what the activity involves. No fluff, no extra adjectives unless needed for clarity or appeal.
-    
-                        Examples:
-                        Input
-                            Name: Full day private game drive
-                            Destination: Maasai Mara
-                        Output
-                            Full day private game drive in a 4x4 Landcruiser through the Maasai Mara
+- Name: {name}
+- Destination: {destination}
+
+Tone: Informative, action-oriented, and grounded. Avoid overly promotional language or unnecessary adjectives. Focus on what the traveler will actually do or experience. Be specific where possible (e.g., “4x4 Land Cruiser” instead of “vehicle”).
+
+Do not repeat the destination unless needed for clarity.
+
+Examples:
+Input:
+    Name: Full day private game drive  
+    Destination: Maasai Mara  
+Output:
+    Spend the day exploring the Maasai Mara in a 4x4 Land Cruiser with a private guide.
+
+Input:
+    Name: Guided bush walk  
+    Destination: Tarangire  
+Output:
+    Take a guided walk through Tarangire’s bushland to track wildlife on foot and learn about local plants.
     '''
     return background_info
 
