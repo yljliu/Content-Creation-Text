@@ -27,9 +27,9 @@ def main_room(id: str):
                 break
             except ClientError as e:
                 sleep_time += 1
-                if sleep_time > 6:
+                if sleep_time == 6:
                     exhaust = "Exhausted"
-                    return "Exhausted"
+                    break
                 time.sleep(time_slept)
                 time_slept = time_slept * 2
             except Exception as e:
@@ -39,7 +39,6 @@ def main_room(id: str):
         if exhaust == "Exhausted":
             print("Error, Resource Exhausted")
             break
-        break
     return {"result": results, "names": names, "type": "room"}
 
 '''Generate descriptions for destinations'''
@@ -61,9 +60,9 @@ def main_destination(id: str):
                 break
             except ClientError as e:
                 sleep_time += 1
-                if sleep_time > 6:
+                if sleep_time == 6:
                     exhaust = "Exhausted"
-                    return "Exhausted"
+                    break
                 time.sleep(time_slept)
                 time_slept = time_slept * 2
             except Exception as e:
@@ -73,7 +72,6 @@ def main_destination(id: str):
         if exhaust == "Exhausted":
             print("Error, Resource Exhausted")
             break
-        break
     return {"result": results, "names": names, "type": "destination"}
 
 '''Generate descriptions for accomodations'''
@@ -95,9 +93,9 @@ def main_accomodation(id: str):
                 break
             except ClientError as e:
                 sleep_time += 1
-                if sleep_time > 6:
+                if sleep_time == 6:
                     exhaust = "Exhausted"
-                    return "Exhausted"
+                    break
                 time.sleep(time_slept)
                 time_slept = time_slept * 2
             except Exception as e:
@@ -107,7 +105,6 @@ def main_accomodation(id: str):
         if exhaust == "Exhausted":
             print("Error, Resource Exhausted")
             break
-        break
     return {"result": results, "names": names, "type": "accomodation"}
 
 '''Generate descriptions for itineraries'''
@@ -129,9 +126,9 @@ def main_itinerary(id: str):
                 break
             except ClientError as e:
                 sleep_time += 1
-                if sleep_time > 6:
+                if sleep_time == 6:
                     exhaust = "Exhausted"
-                    return "Exhausted"
+                    break
                 time.sleep(time_slept)
                 time_slept = time_slept * 2
             except Exception as e:
@@ -141,7 +138,6 @@ def main_itinerary(id: str):
         if exhaust == "Exhausted":
             print("Error, Resource Exhausted")
             break
-        break
     return {"result": results, "names": names, "type": "itinerary"}
 
 '''Generate descriptions for activities'''
@@ -163,9 +159,9 @@ def main_activities(id: str):
                 break
             except ClientError as e:
                 sleep_time += 1
-                if sleep_time > 6:
+                if sleep_time == 6:
                     exhaust = "Exhausted"
-                    return "Exhausted"
+                    break
                 time.sleep(time_slept)
                 time_slept = time_slept * 2
             except Exception as e:
@@ -196,9 +192,10 @@ def main_activities_for_content(id: str):
                 break
             except ClientError as e:
                 sleep_time += 1
-                if sleep_time > 6:
+                #print(sleep_time)
+                if sleep_time == 6:
                     exhaust = "Exhausted"
-                    return "Exhausted"
+                    break
                 time.sleep(time_slept)
                 time_slept = time_slept * 2.01
             except Exception as e:
@@ -214,7 +211,7 @@ def main_activities_for_content(id: str):
 if __name__ == '__main__':
 
     '''Create a Write class to write our results into a CSV file'''
-    print("What would you like to generate me a description of?\n1. Room Type\n2. Destination\n3. Accomodations\n4. Itineraries\n5. Activities for Content\n6. Activities\n")
+    print("What would you like to generate me a description of?\n1. Room Type\n2. Destination\n3. Accomodations\n4. Itineraries\n5. Activities\n6. Activities for Content\n")
     
     write = Write()
     while True:

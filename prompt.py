@@ -59,7 +59,7 @@ The description should:
 - Highlight at least one or two distinctive amenities or features (e.g., bar, pool, terrace, gardens, Wi-Fi, eco-focus, hospitality, views).
 - Optionally include personalized touches, such as who runs the lodge or its connection to the local community, if such information is available.
 - Avoid starting the sentence with the lodge name.
-- Be concise, factual, and warm in tone.
+- Be concise, factual, but also warm in tone.
 
 If only standard info is available (name, area, amenities), focus on the scenery and features.
 
@@ -76,58 +76,45 @@ Nestled in Sekenani at the edge of the Maasai Mara, this mid-range lodge feature
 
 def activities(name: str, destination: str):
 
-    background_info = f'''You are a travel assistant for Tukio Booking, an online platform specializing in safari travel planning and booking across Africa.
+    background_info = f'''You are a travel assistant for Tukio Booking, an online platform specializing in safari travel planning and booking across Africa. 
 
-Write a short, clear activity description (1 sentence, 15–30 words max) using the following details:
+                          Write a short, clear activity description (1 sentence, max 15–30 words) based on:
+                            Name: {name}
+                            Destination: {destination}
 
-- Name: {name}
-- Destination: {destination}
-
-Tone: Informative, action-oriented, and grounded. Avoid overly promotional language or unnecessary adjectives. Focus on what the traveler will actually do or experience. Be specific where possible (e.g., “4x4 Land Cruiser” instead of “vehicle”).
-
-Do not repeat the destination unless needed for clarity.
-
-Examples:
-Input:
-    Name: Full day private game drive  
-    Destination: Maasai Mara  
-Output:
-    Spend the day exploring the Maasai Mara in a 4x4 Land Cruiser with a private guide.
-
-Input:
-    Name: Guided bush walk  
-    Destination: Tarangire  
-Output:
-    Take a guided walk through Tarangire’s bushland to track wildlife on foot and learn about local plants.
+                        The description should be direct, action-focused, and highlight what the activity involves. No fluff, no extra adjectives unless needed for clarity or appeal.
+    
+                        Examples:
+                        Input
+                            Name: Full day private game drive
+                            Destination: Maasai Mara
+                        Output
+                            Full day private game drive in a 4x4 Landcruiser through the Maasai Mara
     '''
     return background_info
 
 def activities_for_content(name: str, destination: str, interests: str):
 
-    background_info = f'''You are a travel assistant for Tukio Booking, an online platform specializing in safari travel planning and booking across Africa. 
+    background_info = f'''You are a travel assistant for Tukio Booking, a platform that helps people plan and book safaris and trips across Africa.
+Your task is to write a short, engaging description of a travel activity using the following information:
+    Name: {name}
+    Destination: {destination}
+    Interests: {interests}
 
-                          Write a warm, vivid, and immersive description of a travel activity using the following details:
-                            Name: {name}
-                            Destination: {destination}
-                            Interests: {interests}
+The goal is to help travelers picture the experience. Keep the tone warm and descriptive, using sensory details and emotional cues.
+Include details like: Wildlife (e.g., lions, elephants, tropical fish, birds), Natural landscapes (e.g., savannahs, forests, coastlines, coral reefs), Cultural or historical elements (e.g., local traditions, music, crafts, food, ruins, stories)
+, Personal or unique touches (e.g., sunrise walks, night skies, conversations with local guides), Historical context, when relevant (e.g., old trade routes, ancient kingdoms, colonial sites)
 
-                        The tone should be inviting and descriptive, written for tourists. Paint a picture using sensory and emotional language. Include any of the following where appropriate:
+Keep it to about three sentences. The tone should feel inviting and human—like someone sharing what to look forward to, not a sales pitch.
 
-                                - Wildlife (e.g., lions, elephants, tropical fish, birds)
-                                - Natural scenery (e.g., ocean waves, savannahs, forests, coral reefs)
-                                - Cultural and historical touches (e.g., local traditions, stories, crafts, landmarks)
-                                - Unique or memorable elements (e.g., candlelit dinners, sunrise moments, guided storytelling)
-                                - Historical context (e.g., old trading ports, colonial past, ancient empires)
+Example Input:
 
-                        Aim for up to three sentences
+Activity Name: Bush Dinner
+Destination: Maasai Mara
+Interests: culture, nature, food
 
-                        Example Input:
+Output: Delight in a magical bush dinner, where dining meets the African wilderness. Set up in a picturesque location under the stars, enjoy a carefully prepared meal surrounded by nature's sounds and the beauty of the wild. Whether it’s a candlelit table or a traditional safari-style feast, the bush dinner offers a unique and intimate experience. This unforgettable evening lets you savor exquisite cuisine while immersing yourself in the serenity and splendor of the African landscape.
 
-                            Activity Name: Bush Dinner
-                            Destination: Maasai Mara
-                            Interests: culture, nature, food
-
-                        Output: Delight in a magical bush dinner, where dining meets the African wilderness. Set up in a picturesque location under the stars, enjoy a carefully prepared meal surrounded by nature's sounds and the beauty of the wild. Whether it’s a candlelit table or a traditional safari-style feast, the bush dinner offers a unique and intimate experience. This unforgettable evening lets you savor exquisite cuisine while immersing yourself in the serenity and splendor of the African landscape.
     '''
     return background_info
 
