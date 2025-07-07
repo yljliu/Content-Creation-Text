@@ -52,31 +52,30 @@ def destination():
     df_destination = df_destination.to_dict(orient = 'records')
     return df_destination
 
-def accomodation_():
+def accomodation():
    df_accomodation = pd.read_excel("New Database.xlsx", sheet_name = "Accommodation", usecols = "B,C,H,N")
-   print(df_accomodation.head(5))
    df_accomodation = df_accomodation.to_dict(orient = 'records')
    return df_accomodation
 
-def activities_for_content_():
+def activities_for_content():
     df_activities_content = pd.read_excel("New Database.xlsx", sheet_name = "Activities for Content", usecols = "A,J,L")
     print(df_activities_content.head(5))
     df_activities_content = df_activities_content.to_dict(orient = 'records')
     return df_activities_content
 
-def room_type_():
+def room_type():
     df_room_type = pd.read_excel("New Database.xlsx", sheet_name = "Room Type", usecols = "B,D,E,J", skiprows = 1)
     print(df_room_type.head(5))
     df_room_type = df_room_type.to_dict(orient = 'records')
     return df_room_type
 
-def activities_():
+def activities():
     df_activities = pd.read_excel("New Database.xlsx", sheet_name = "Activities", usecols = "A,J")
     print(df_activities.head(5))
     df_activities = df_activities.to_dict(orient = 'records')
     return df_activities
 
-def preset_itineraries_():
+def preset_itineraries():
     df_iten = pd.read_excel("New Database.xlsx", sheet_name = "Pre-set Itineraries", usecols = "F,H,J,M,R")
     print(df_iten.head(5))
     df_iten = df_iten.to_dict(orient = 'records')
