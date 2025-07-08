@@ -9,9 +9,9 @@ from writeCSV import Write
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 '''Generate descriptions for room types'''
-def main_room(id: str):
+def main_room():
 
-    room_array = room_type(id)
+    room_array = room_type()
     results = []
     names = []
     for dictionary in room_array:
@@ -42,9 +42,9 @@ def main_room(id: str):
     return {"result": results, "names": names, "type": "room"}
 
 '''Generate descriptions for destinations'''
-def main_destination(id: str):
+def main_destination():
 
-    destination_array = destination(id)
+    destination_array = destination()
     results = []
     names = []
     for dictionary in destination_array:
@@ -75,9 +75,9 @@ def main_destination(id: str):
     return {"result": results, "names": names, "type": "destination"}
 
 '''Generate descriptions for accomodations'''
-def main_accomodation(id: str):
+def main_accomodation():
     
-    accomodation_array = accomodation(id)
+    accomodation_array = accomodation()
     results = []
     names = []
     for dictionary in accomodation_array:
@@ -108,9 +108,9 @@ def main_accomodation(id: str):
     return {"result": results, "names": names, "type": "accomodation"}
 
 '''Generate descriptions for itineraries'''
-def main_itinerary(id: str):
+def main_itinerary():
     
-    itineraries_array = preset_itineraries(id)
+    itineraries_array = preset_itineraries()
     results = []
     names = []
     for dictionary in itineraries_array:
@@ -141,9 +141,9 @@ def main_itinerary(id: str):
     return {"result": results, "names": names, "type": "itinerary"}
 
 '''Generate descriptions for activities'''
-def main_activities(id: str):
+def main_activities():
     
-    activities_array = activities(id)
+    activities_array = activities()
     results = []
     names = []
     for dictionary in activities_array:
@@ -174,9 +174,9 @@ def main_activities(id: str):
     return {"result": results, "names": names, "type": "activity"}
 
 '''Generate descriptions for activities for content'''
-def main_activities_for_content(id: str):
+def main_activities_for_content():
     
-    activities_for_content_array = activities_for_content(id)
+    activities_for_content_array = activities_for_content()
     results = []
     names = []
     for dictionary in activities_for_content_array:
@@ -217,28 +217,22 @@ if __name__ == '__main__':
     while True:
         num = int(input("Enter a number 1 to 6, each corresponding its respective category: "))
         if num == 1:
-            spreadsheet_id = input("Enter the ID of your spreadsheet: ")
-            write.getFile(main_room(spreadsheet_id))
+            write.getFile(main_room())
             break
         elif num == 2:
-            spreadsheet_id = input("Enter the ID of your spreadsheet: ")
-            write.getFile(main_destination(spreadsheet_id))
+            write.getFile(main_destination())
             break
         elif num == 3:
-            spreadsheet_id = input("Enter the ID of your spreadsheet: ")
-            write.getFile(main_accomodation(spreadsheet_id))
+            write.getFile(main_accomodation())
             break
         elif num == 4:
-            spreadsheet_id = input("Enter the ID of your spreadsheet: ")
-            write.getFile(main_itinerary(spreadsheet_id))
+            write.getFile(main_itinerary())
             break
         elif num == 5:
-            spreadsheet_id = input("Enter the ID of your spreadsheet: ")
-            write.getFile(main_activities(spreadsheet_id))
+            write.getFile(main_activities())
             break
         elif num == 6:
-            spreadsheet_id = input("Enter the ID of your spreadsheet: ")
-            write.getFile(main_activities_for_content(spreadsheet_id))
+            write.getFile(main_activities_for_content())
             break
         else:
             print("Invalid Number, try again")
